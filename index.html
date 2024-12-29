@@ -138,6 +138,9 @@
                                 forced: true,
                                 onChange: (newQuality) => updateQuality(hls, newQuality),
                             };
+                             // Show "Live" label when the stream is live
+                            const liveLabel = document.getElementById('live-label');
+                            liveLabel.style.display = 'block';
 
                             const player = new Plyr(video, defaultOptions);
                             clearTimeout(errorMessageTimeout);
