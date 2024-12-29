@@ -146,6 +146,18 @@
                             clearTimeout(errorMessageTimeout);
                         });
 
+                        // Detect when controls are visible and show/hide the live label
+                            const controlPanel = document.querySelector('.shaka-controls');
+                            
+                            controlPanel.addEventListener('mouseenter', () => {
+                              liveLabel.style.display = 'block';  // Show the "Live" label when controls are visible
+                            });
+                    
+                            controlPanel.addEventListener('mouseleave', () => {
+                              liveLabel.style.display = 'none';  // Hide the "Live" label when controls are hidden
+                            });
+                          }
+
                         hls.on(Hls.Events.ERROR, (event, data) => {
                             console.error('HLS.js Error:', data);
                         });
